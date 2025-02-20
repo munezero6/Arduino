@@ -1,0 +1,51 @@
+int LED1 = 13;
+int LED2 = 12;
+int LED3 = 11;
+int BUZZER = 10;
+int brightness;
+int kuzima;
+
+void setup() {
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+}
+
+void loop() {
+  for (brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(LED1, brightness);
+    tone(BUZZER, 1000);
+    delay(10);
+  }
+
+  for (kuzima = 255; kuzima >= 0; kuzima--) {
+    analogWrite(LED1, kuzima);
+    tone(BUZZER, 1000);
+    delay(10);
+  }
+
+  noTone(BUZZER);
+
+  for (brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(LED2, brightness);
+    delay(10);
+  }
+
+  for (kuzima = 255; kuzima >= 0; kuzima--) {
+    analogWrite(LED2, kuzima);
+    delay(10);
+  }
+
+  for (brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(LED3, brightness);
+    Serial.println("LED3 is on");
+    delay(10);
+  }
+
+  for (kuzima = 255; kuzima >= 0; kuzima--) {
+    analogWrite(LED3, kuzima);
+    Serial.println("LED3 is off");
+    delay(10);
+  }
+}
